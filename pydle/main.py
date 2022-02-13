@@ -68,6 +68,7 @@ if __name__ == "__main__":
                 tries += 1
             if tries == 6:
                 print("You lose!")
+                print(f"The answer was {target.upper()}.")
         
 
 
