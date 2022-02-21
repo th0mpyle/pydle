@@ -8,6 +8,8 @@ def word_list_check(guess, arr):
         index += 1
         if guess in line:
             flag = 1
+        elif len(guess) != 5:
+            flag = 2
         else:
             continue
     return flag
@@ -15,7 +17,7 @@ def word_list_check(guess, arr):
 if __name__ == "__main__":
     while True:
         print("Welcome to Pydle!")
-        words = open("words.txt", "r")
+        words = open("Pydle/pydle/words.txt", "r")
         words = words.readlines()
         lines = 0
         tries = 0
@@ -28,8 +30,10 @@ if __name__ == "__main__":
             while True:
                 guess = input("\nGuess: \n").lower()
                 test = word_list_check(guess, words)
-                if test != 1:
+                if test == 0:
                     print("Not in word list!")
+                elif test == 2:
+                    print("Word must be 5 letters long!")
                 else:
                     break
             
