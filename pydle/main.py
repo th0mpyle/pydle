@@ -21,8 +21,8 @@ def word_list_check(guess, arr):
 if __name__ == "__main__":
     while True:
         print("\nWelcome to Pydle!")
-        words = open("Pydle/pydle/wordfiles/words.txt", "r")
-        targets = open("Pydle/pydle/wordfiles/targets.txt", "r")
+        words = open("pydle/wordfiles/words.txt", "r")
+        targets = open("pydle/wordfiles/targets.txt", "r")
         target_list = targets.readlines()
         word_list = words.readlines()
         lines = 0
