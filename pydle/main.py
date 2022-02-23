@@ -1,5 +1,5 @@
 from random import *
-
+from colorama import Fore, Style
 
 def word_list_check(guess, arr):
     flag = 0
@@ -20,7 +20,7 @@ def word_list_check(guess, arr):
 
 if __name__ == "__main__":
     while True:
-        print("Welcome to Pydle!")
+        print("\nWelcome to Pydle!")
         words = open("Pydle/pydle/wordfiles/words.txt", "r")
         targets = open("Pydle/pydle/wordfiles/targets.txt", "r")
         target_list = targets.readlines()
@@ -46,42 +46,37 @@ if __name__ == "__main__":
                     break
             
             if guess == target:
-                print("You win!")
+                print(Fore.GREEN + guess.upper())
+                print(Style.RESET_ALL)
+                print('You win!!')
+                yn = input("Another game? (press Y to continue): ")
                 break
             else:
-                correct_letters_arr = []
-
-                g_array = list(guess)
-                t_array = list(target)
-                for i in range(len(guess)):
-                    if g_array[i] == t_array[i]:
-                        correct_letters_arr.append(g_array[i])
+                response_blocks = []
+                guess_arr = list(guess)
+                target_arr = list(target)
+                for index in range(len(guess)):
+                    if guess_arr[index] == target_arr[index]:
+                        greenletter = Fore.GREEN + guess_arr[index].upper()
+                        response_blocks.append(greenletter)
+                    elif guess_arr[index] in target_arr:
+                        yellowletter = Fore.YELLOW + guess_arr[index].upper()
+                        response_blocks.append(yellowletter)
                     else:
-                        continue
-                contained_letters_arr = []
-                for i in range(len(guess)):
-                    if g_array[i] in t_array:
-                        if g_array[i] in contained_letters_arr:
-                            pass
-                        elif g_array[i] in correct_letters_arr:
-                            pass
-                        elif g_array[i] not in contained_letters_arr:
-                            contained_letters_arr.append(g_array[i])
-                    else:
-                        continue
-                if len(correct_letters_arr) > 0:
-                    correct_letters = ", ".join(correct_letters_arr)
-                    print(f"Correctly placed letters: {correct_letters}")
-                if len(contained_letters_arr) > 0:
-                    contained_letters = ", ".join(contained_letters_arr)
-                    print(f"Contained letters: {contained_letters}")
-                else:
-                    print("There are no correct letters in your word.\n")
+                        whiteletter = Fore.WHITE + guess_arr[index].upper()
+                        response_blocks.append(whiteletter)
+                print(''.join(response_blocks))
+                print(Style.RESET_ALL)
                 tries += 1
             if tries == 6:
                 print("You lose!")
                 print(f"The answer was {target.upper()}.")
-        
+                yn = input("Another game? (press Y to continue): ")
+        if yn.lower() == 'y':
+            continue
+        else:
+            print("Thank you for playing my game! I spent ages making this.")
+            break
 
 
         
