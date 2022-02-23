@@ -21,19 +21,21 @@ def word_list_check(guess, arr):
 if __name__ == "__main__":
     while True:
         print("Welcome to Pydle!")
-        words = open("Pydle/pydle/words.txt", "r")
-        words = words.readlines()
+        words = open("Pydle/pydle/wordfiles/words.txt", "r")
+        targets = open("Pydle/pydle/wordfiles/targets.txt", "r")
+        target_list = targets.readlines()
+        word_list = words.readlines()
         lines = 0
         tries = 0
-        for i in range(len(words)):
+        for i in range(len(target_list)):
             lines += 1
-        index = words[randint(0, len(words) - 1)]
-        target = index[0:5]
+        index = target_list[randint(0, len(target_list) - 1)]
+        target = index[3:8]
         word = "NaN"
         while True:
             while True:
                 guess = input("\nGuess: \n").lower()
-                test = word_list_check(guess, words)
+                test = word_list_check(guess, word_list)
                 if test == 0:
                     print("Not in word list!")
                 elif test == 2:
