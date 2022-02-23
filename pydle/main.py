@@ -5,8 +5,12 @@ def word_list_check(guess, arr):
     flag = 0
     index = 0
     for line in arr:
+        # if flag returns 1 then the program should run
+        # this is messy but the order is hard to change
         index += 1
-        if guess in line:
+        if guess == "":
+            flag = 3
+        elif guess in line:
             flag = 1
         elif len(guess) != 5:
             flag = 2
@@ -34,6 +38,8 @@ if __name__ == "__main__":
                     print("Not in word list!")
                 elif test == 2:
                     print("Word must be 5 letters long!")
+                elif test == 3:
+                    print("Please enter something...")
                 else:
                     break
             
