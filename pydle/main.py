@@ -1,4 +1,4 @@
-from random import *
+import random
 from colorama import Fore, Style
 
 def word_list_check(guess, arr):
@@ -29,12 +29,12 @@ if __name__ == "__main__":
         tries = 0
         for i in range(len(target_list)):
             lines += 1
-        index = target_list[randint(0, len(target_list) - 1)]
+        index = target_list[random.randint(0, len(target_list) - 1)]
         target = index[3:8]
         word = "NaN"
         while True:
             while True:
-                guess = input("\nGuess: \n").lower()
+                guess = input("Guess: \n").lower()
                 test = word_list_check(guess, word_list)
                 if test == 0:
                     print("Not in word list!")
@@ -46,15 +46,23 @@ if __name__ == "__main__":
                     break
             
             if guess == target:
-                print(Fore.GREEN + guess.upper())
+                print("")
+                target_arr = list(target.upper())
+                print(Fore.GREEN + ' '.join(target_arr))
                 print(Style.RESET_ALL)
                 print('You win!!')
                 yn = input("Another game? (press Y to continue): ")
+                if yn.lower() == 'y':
+                    index = target_list[random.randint(0, len(target_list) - 1)]
+                    target = index[3:8]
                 break
             else:
                 response_blocks = []
                 guess_arr = list(guess)
                 target_arr = list(target)
+                
+                # TODO: Make the letter not appear yellow if it is used twice
+                
                 for index in range(len(guess)):
                     if guess_arr[index] == target_arr[index]:
                         greenletter = Fore.GREEN + guess_arr[index].upper()
@@ -76,8 +84,5 @@ if __name__ == "__main__":
         if yn.lower() == 'y':
             continue
         else:
-            print("Thank you for playing my game! I spent ages making this.")
+            print("Thank you for playing my game!")
             break
-
-
-        
