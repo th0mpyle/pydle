@@ -65,7 +65,8 @@ if __name__ == "__main__":
                     else:
                         whiteletter = Fore.WHITE + guess_arr[index].upper()
                         response_blocks.append(whiteletter)
-                print(''.join(response_blocks))
+                print("")
+                print(' '.join(response_blocks))
                 print(Style.RESET_ALL)
                 tries += 1
             if tries == 6:
