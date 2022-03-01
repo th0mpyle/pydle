@@ -78,6 +78,7 @@ if __name__ == "__main__":
                 print(Style.RESET_ALL)
                 tries += 1
             if tries == 6:
+                tries = 0
                 print("You lose!")
                 print(f"The answer was {target.upper()}.")
                 yn = input("Another game? (press Y to continue): ")
