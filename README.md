@@ -9,4 +9,7 @@ TP
 # Repl
 
 The Repl can be found here so you can run the game in your browser.
-https://replit.com/@th0mpyle
+
+However, Replit is slow and won't be updated as often as this repo, so if you want to check this out I recommend that you download the ZIP or clone it.
+
+That being said, please check it out! https://replit.com/@th0mpyle/pydle?v=1
