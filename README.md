@@ -8,4 +8,5 @@ TP
 
 # Repl
 
-https://replit.com/@th0mpyle/pydle?v=1
+The Repl can be found here so you can run the game in your browser.
+https://replit.com/@th0mpyle
